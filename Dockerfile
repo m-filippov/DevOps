@@ -1,6 +1,7 @@
 # Version: 0.0.1
 FROM ubuntu:18.04
 #RUN apt-get update && apt-get install -y apt-transport-https && apt-get install -my wget gnupg1
+RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get install -y wget
 RUN apt-get install -y python2.7
