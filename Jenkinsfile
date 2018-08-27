@@ -1,12 +1,3 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-            
-             sh 'docker_compose up --build' 
-            }
-        }
-    }
-}
+def username = 'Jenkins'
+echo 'Hello Mr. ${username}'
+echo "I said, Hello Mr. ${username}"
