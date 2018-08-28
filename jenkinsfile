@@ -1,4 +1,5 @@
-node ('host_1') {
+pipeline {
+  node ('host_1') {
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
@@ -12,4 +13,5 @@ node ('host_1') {
         sh 'docker-compose up --build -d'
      }
     
+  }
 }
