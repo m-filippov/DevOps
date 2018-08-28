@@ -10,6 +10,7 @@ node ('host_1') {
    stage('docker-up'){
         sh 'users && groups'
         sh 'docker-compose up --build -d'
+        properties([pipelineTriggers([cron('H 18 * * *')])])
      }
 
 }
