@@ -1,5 +1,9 @@
 pipeline {
-  node ('host_1') {
+  agent {
+    node {
+      label 'host_1'
+    }
+  }
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
@@ -14,4 +18,3 @@ pipeline {
      }
     
   }
-}
