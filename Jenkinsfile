@@ -3,7 +3,7 @@ pipeline {
        label 'host_1'
     }
     triggers {
-        cron(' */3 * * * *')
+        cron(' * 23 * * *')
     }
     stages {
         stage('git_clone') {
