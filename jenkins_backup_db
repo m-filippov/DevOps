@@ -1,0 +1,22 @@
+pipeline {
+     agent {
+       label 'docker'
+    }
+    triggers {
+        cron('@daily')
+    }
+    stages {
+        stage('db_backup') {
+            steps {
+              dir('ansible') {
+                sshagent("resell-staging")
+                  withCredentials([file(credentialsId: "resell-staging-known-hosts", variable: 'KNOWN_HOSTS')]) {
+                     sh "docker-compose run --rm ansible-jenkins cat /root/.ssh/known_hosts"
+                     sh "docker-compose run --rm ansible-jenkins ansible-playbook db_backup.yml -i inventory -l staging
+                 }
+               }
+            }
+        }
+            
+        }
+    }
